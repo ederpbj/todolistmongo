@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var bodyParse = require('body-parse');
+var bodyParse = require('body-parser');
 
 var tasks = require('./routes/tasks');
 

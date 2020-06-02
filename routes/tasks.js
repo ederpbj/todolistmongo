@@ -1,82 +1,104 @@
-var express = require('express');
-var router = express.Router();
-var mongojs = require('mongojs');
-
+var express = require('express')
+var router = express.Router()
+var mongojs = require('mongojs')
 var db = mongojs(
-  "tasklist",
-  [tasks]
-);
+  'mongodb+srv://ederpbj:<password>@cluster0-p8rn3.mongodb.net/test?retryWrites=true&w=majority',
+  ['tasks']
+)
 
-// Get all tasks
-router.get("/tasks", (req, res, next) => {
-  db.tasks.find({}, { _id: 1, title: 1 }, (err, tasks) => {
+// Get All Tasks
+router.get('/tasks', function(req, res, next) {
+  db.tasks.find({}, { _id: 1, title: 1 }, function(err, tasks) {
     if (err) {
-      res.send(err);
+      res.send(err)
     }
 
-    var data = [];
-    Object.keys(tasks).forEach((key) => {
-      var val = taks[key];
-      data.push([val.title, val._id]);
-    });
-    res.send(data);
-  });
-});
+    var data = []
+    Object.keys(tasks).forEach(function(key) {
+      var val = tasks[key]
+      data.push([val.title, val._id])
+    })
+    //res.json(tasks);
+    //res.send(tasks);
+    res.send(data)
+  })
+})
 
+// Get Single Task
+router.get('/task/:id', function(req, res, next) {
+  db.tasks.findOne({ _id: mongojs.ObjectId(req.params.id) }, function(
+    err,
+    task
+  ) {
+    if (err) {
+      res.send(err)
+    }
+    res.json(task)
+  })
+})
 
-// Add task
-router.post("/task", (req, res, next) => {
-  var task = req.body;
+//Save Task
+router.post('/task', function(req, res) {
+  var task = req.body
   if (!task.title) {
-    res.status(400);
+    res.status(400)
     res.json({
-      error: "Bad Data"
-    });
+      error: 'Bad Data'
+    })
   } else {
-    db.task.save(task, (err, task) => {
+    db.tasks.save(task, function(err, task) {
       if (err) {
-        res.send(err);
+        res.send(err)
       }
-      res.json(task);
-    });
+      res.json(task)
+    })
   }
-});
+})
 
-// Delete task
-router.delete("/task/:id", (req, res, next) => {
-  db.tasks.remove({ _id: mongojs.ObjectId(req.params.id) }, (err, task) => {
+// Delete Task
+router.delete('/task/:id', function(req, res) {
+  db.tasks.remove({ _id: mongojs.ObjectId(req.params.id) }, function(
+    err,
+    task
+  ) {
     if (err) {
-      res.send(err);
+      res.send(err)
     }
-    res.json(task);
-  });
-});
+    res.json(task)
+  })
+})
 
-// Update task
-router.put("/task/:id", (req, res, next) => {
-  var task = req.body;
-  var updTask = {};
+// Update Task
+router.put('/task/:id', function(req, res, next) {
+  var task = req.body
+  var updTask = {}
+
+  if (task.isDone) {
+    updTask.isDone = task.isDone
+  }
 
   if (task.title) {
-    updTask.title = task.title;
+    updTask.title = task.title
   }
 
   if (!updTask) {
-    res.status(400);
+    res.status(400)
     res.json({
-      error: "Bad Data"
-    });
+      error: 'Bad Data'
+    })
   } else {
-    db.tasks.update({ _id: mongojs.ObjectID(req.params.id) },
+    db.tasks.update(
+      { _id: mongojs.ObjectId(req.params.id) },
       updTask,
       {},
-      (err, task) => {
+      function(err, task) {
         if (err) {
-          res.send(err);
+          res.send(err)
         }
-        res.json(task);
-      });
+        res.json(task)
+      }
+    )
   }
-});
+})
 
-module.exports = router;
+module.exports = router
