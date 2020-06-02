@@ -1,0 +1,19 @@
+{
+  "name": "todolistmongo",
+  "version": "1.0.0",
+  "description": "Projeto Login mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ederpbj/todolistmongo.git"
+  },
+  "author": "Eder Pires",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ederpbj/todolistmongo/issues"
+  },
+  "homepage": "https://github.com/ederpbj/todolistmongo#readme"
+}
