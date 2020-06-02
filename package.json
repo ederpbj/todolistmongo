@@ -4,6 +4,7 @@
   "description": "Projeto Login mongo",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/ederpbj/todolistmongo/issues"
   },
-  "homepage": "https://github.com/ederpbj/todolistmongo#readme"
+  "homepage": "https://github.com/ederpbj/todolistmongo#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.17.1",
+    "mongojs": "^3.1.0",
+    "path": "^0.12.7"
+  }
 }
