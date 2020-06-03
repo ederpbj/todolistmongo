@@ -60,6 +60,6 @@ npm run dev
 
 
 ## Links
-
+[Video aula MERN Todo List](https://www.youtube.com/watch?v=yAFvDQt0ack&ab_channel=MoreCodes)
 [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
 [Fontwesome](https://fontawesome.com/v4.7.0/get-started/)
