@@ -1,6 +1,8 @@
 # todolistmongo
 MERN (MongoDB + Express + ReactJS + NodeJS) - Building a Todo List App
 
+[Git origin](https://github.com/ArjunAranetaCodes/MoreCodes-Youtube/tree/master/mern-todolist-mongodb)
+
 Clonar repositório
 ```
 git clone https://github.com/ederpbj/todolistmongo.git
@@ -26,6 +28,7 @@ npm install --save mongojs
 npm install --save body-parse
 npm install --save cors
 npm install --save ejs
+npm install nodemon
 ```
 
 Criando cliente ReactJs, rodar
@@ -43,6 +46,18 @@ rimraf node_modules
 
 npm install
 ```
+
+Rodar com nodemon
+```
+"scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+
+no cmd: 
+
+npm run dev
+```
+
 
 ## Links
 

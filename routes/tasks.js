@@ -2,7 +2,8 @@ var express = require('express')
 var router = express.Router()
 var mongojs = require('mongojs')
 var db = mongojs(
-  'mongodb+srv://ederpbj:<password>@cluster0-p8rn3.mongodb.net/test?retryWrites=true&w=majority',
+  // 'mongodb+srv://ederpbj:<password>@cluster0-p8rn3.mongodb.net/test?retryWrites=true&w=majority',
+  'tasks',
   ['tasks']
 )
 
